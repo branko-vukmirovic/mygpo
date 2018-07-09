@@ -4,6 +4,7 @@ import unittest
 import os
 from urllib.parse import urlencode
 
+from django.conf import settings
 from django.test.client import Client
 from django.test import TestCase
 from django.urls import reverse
@@ -195,4 +196,4 @@ class OpenAPIDefinitionValidityTest(TestCase):
     "Test the validity of the OpenAPI definition file"
 
     def test_api_definition_validity(self):
-        validate_spec_url('file://' + os.path.abspath('./mygpo/api/openapi.yaml'))
+        validate_spec_url('file://' + settings.API_DEFINITION_FILE_FULL_PATH)
