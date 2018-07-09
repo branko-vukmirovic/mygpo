@@ -7,12 +7,16 @@ services:
     build:
       context: contrib
       dockerfile: Dockerfile.postgres
+    ports: 
+      - "5432:5432"
 
   memcached:
     image: memcached:1.4
 
   redis:
     image: redis:3.2-alpine
+    ports: 
+      - "6379:6379"
 
   web:
     extends:
